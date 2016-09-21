@@ -30,6 +30,7 @@ public struct SegmentioState {
     
     public init(
         backgroundColor: UIColor = UIColor.clearColor(),
+        // FIXME : Add custom font
         titleFont: UIFont = UIFont.systemFontOfSize(UIFont.smallSystemFontSize()),
         titleTextColor: UIColor = UIColor.blackColor()) {
         self.backgroundColor = backgroundColor
@@ -51,8 +52,8 @@ public struct SegmentioHorizontalSeparatorOptions {
     var color: UIColor
     
     public init(
-        type: SegmentioHorizontalSeparatorType = .TopAndBottom,
-        height: CGFloat = 1.0,
+        type: SegmentioHorizontalSeparatorType = .Bottom,
+        height: CGFloat = 0.0,
         color: UIColor = UIColor.darkGrayColor()) {
         self.type = type
         self.height = height
@@ -67,7 +68,7 @@ public struct SegmentioVerticalSeparatorOptions {
     var ratio: CGFloat
     var color: UIColor
     
-    public init(ratio: CGFloat = 1.0, color: UIColor = UIColor.darkGrayColor()) {
+    public init(ratio: CGFloat = 0.5, color: UIColor = UIColor.darkGrayColor()) {
         self.ratio = ratio
         self.color = color
     }
@@ -90,6 +91,7 @@ public struct SegmentioIndicatorOptions {
         type: SegmentioIndicatorType = .Bottom,
         ratio: CGFloat = 1.0,
         height: CGFloat = 2.0,
+        // FIXME : Add custom color
         color: UIColor = UIColor.orangeColor()) {
         self.type = type
         self.ratio = ratio
