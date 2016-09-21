@@ -18,6 +18,10 @@
 		324B605E1D33E5200050B083 /* UIView+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B60541D33E5200050B083 /* UIView+Appearance.swift */; };
 		324B605F1D33E5200050B083 /* Segmentio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B60551D33E5200050B083 /* Segmentio.swift */; };
 		324B60601D33E5200050B083 /* SegmentioOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324B60561D33E5200050B083 /* SegmentioOptions.swift */; };
+		AF29B4EC1D9288780095E256 /* UIColor+Bootake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4EB1D9288780095E256 /* UIColor+Bootake.swift */; };
+		AF29B4EE1D9289CE0095E256 /* UIFont+Bootake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4ED1D9289CE0095E256 /* UIFont+Bootake.swift */; };
+		AF29B4F21D928B2F0095E256 /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF29B4F01D928B2F0095E256 /* NotoSansKR-Light.otf */; };
+		AF29B4F31D928B2F0095E256 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF29B4F11D928B2F0095E256 /* NotoSansKR-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		324B60541D33E5200050B083 /* UIView+Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Appearance.swift"; sourceTree = "<group>"; };
 		324B60551D33E5200050B083 /* Segmentio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segmentio.swift; sourceTree = "<group>"; };
 		324B60561D33E5200050B083 /* SegmentioOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioOptions.swift; sourceTree = "<group>"; };
+		AF29B4EB1D9288780095E256 /* UIColor+Bootake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Bootake.swift"; sourceTree = "<group>"; };
+		AF29B4ED1D9289CE0095E256 /* UIFont+Bootake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Bootake.swift"; sourceTree = "<group>"; };
+		AF29B4F01D928B2F0095E256 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		AF29B4F11D928B2F0095E256 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +84,7 @@
 		324B604A1D33E5200050B083 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				AF29B4EF1D928B2F0095E256 /* Fonts */,
 				324B604B1D33E5200050B083 /* Cells */,
 				324B60531D33E5200050B083 /* Extensions */,
 				324B60551D33E5200050B083 /* Segmentio.swift */,
@@ -102,8 +111,19 @@
 			isa = PBXGroup;
 			children = (
 				324B60541D33E5200050B083 /* UIView+Appearance.swift */,
+				AF29B4EB1D9288780095E256 /* UIColor+Bootake.swift */,
+				AF29B4ED1D9289CE0095E256 /* UIFont+Bootake.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AF29B4EF1D928B2F0095E256 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AF29B4F01D928B2F0095E256 /* NotoSansKR-Light.otf */,
+				AF29B4F11D928B2F0095E256 /* NotoSansKR-Regular.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +196,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF29B4F31D928B2F0095E256 /* NotoSansKR-Regular.otf in Resources */,
+				AF29B4F21D928B2F0095E256 /* NotoSansKR-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +212,8 @@
 				324B605B1D33E5200050B083 /* SegmentioCellWithImageOverLabel.swift in Sources */,
 				324B60571D33E5200050B083 /* SegmentioCell.swift in Sources */,
 				324B60591D33E5200050B083 /* SegmentioCellWithImageAfterLabel.swift in Sources */,
+				AF29B4EE1D9289CE0095E256 /* UIFont+Bootake.swift in Sources */,
+				AF29B4EC1D9288780095E256 /* UIColor+Bootake.swift in Sources */,
 				324B605F1D33E5200050B083 /* Segmentio.swift in Sources */,
 				324B60581D33E5200050B083 /* SegmentioCellWithImage.swift in Sources */,
 				324B605A1D33E5200050B083 /* SegmentioCellWithImageBeforeLabel.swift in Sources */,
