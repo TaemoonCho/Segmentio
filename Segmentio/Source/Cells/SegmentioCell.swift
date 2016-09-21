@@ -106,11 +106,6 @@ class SegmentioCell: UICollectionViewCell {
             setupConstraint(indicatorOptions: indicatorOptions)
         }
         
-//        if let _ = options.verticalSeparatorOptions {
-//            if isLastCell == false {
-//                setupVerticalSeparators()
-//            }
-//        }
     }
     
     func configure(selected selected: Bool) {
@@ -123,6 +118,9 @@ class SegmentioCell: UICollectionViewCell {
             segmentTitleLabel?.textColor = selected ? selectedState.titleTextColor : defaultState.titleTextColor
             segmentTitleLabel?.font = selected ? selectedState.titleFont : defaultState.titleFont
         }
+        
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor.borderColor().CGColor
     }
     
     func setupConstraintsForSubviews() {

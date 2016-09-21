@@ -13,6 +13,10 @@ extension UIColor {
         return self.colorWithRGB(253, 57, 57)
     }
     
+    class func borderColor() -> UIColor {
+        return self.colorWithRGB(247, 247, 247)
+    }
+    
     class func activeTextColor() -> UIColor {
         return self.colorWithRGB(46, 46, 46)
     }

@@ -76,10 +76,10 @@ class ExampleViewController: UIViewController {
         return [
             SegmentioItem(title: "Tornado", image: UIImage(named: "tornado")),
             SegmentioItem(title: "Earthquakes", image: UIImage(named: "earthquakes")),
-            SegmentioItem(title: "Extreme heat", image: UIImage(named: "heat")),
-            SegmentioItem(title: "Eruption", image: UIImage(named: "eruption")),
-            SegmentioItem(title: "Floods", image: UIImage(named: "floods")),
-            SegmentioItem(title: "Wildfires", image: UIImage(named: "wildfires"))
+//            SegmentioItem(title: "Extreme heat", image: UIImage(named: "heat")),
+//            SegmentioItem(title: "Eruption", image: UIImage(named: "eruption")),
+//            SegmentioItem(title: "Floods", image: UIImage(named: "floods")),
+//            SegmentioItem(title: "Wildfires", image: UIImage(named: "wildfires"))
         ]
     }
     
@@ -131,12 +131,12 @@ class ExampleViewController: UIViewController {
     }
     
     private func segmentioIndicatorOptions() -> SegmentioIndicatorOptions {
-        return SegmentioIndicatorOptions(
-            type: .Bottom,
-            ratio: 1,
-            height: 5,
-            color: ColorPalette.CoralColor
-        )
+        return SegmentioIndicatorOptions()
+//            type: .Bottom,
+//            ratio: 1,
+//            height: 1,
+//            color: UIColor.indicatorColor()
+//        )
     }
     
     private func segmentioHorizontalSeparatorOptions() -> SegmentioHorizontalSeparatorOptions {

@@ -19,6 +19,8 @@
 		8C08B2CAFA57AFB848065BA4E7CA8F27 /* Segmentio-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5720677F504FDAE0BB2FF236B2A89893 /* Segmentio-dummy.m */; };
 		933D56EF2ECC35F1387B739170AFE07B /* Segmentio-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 588D0BD8821CEBC9689C137D843FA812 /* Segmentio-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9E50E7327C0F6358FC61855C0205CC8E /* Pods-Segmentio_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EF8DA8F49FD19F4BD6429F5AA0267180 /* Pods-Segmentio_Tests-dummy.m */; };
+		AF29B4F61D92934D0095E256 /* UIColor+Bootake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4F41D92934D0095E256 /* UIColor+Bootake.swift */; };
+		AF29B4F71D92934D0095E256 /* UIFont+Bootake.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF29B4F51D92934D0095E256 /* UIFont+Bootake.swift */; };
 		C1518E27E6C853C813006C349427A4CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		C5C3FE3FCC48A1460787D130DF0CF12E /* Segmentio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D794DA325FA95310FAD589F0A6A3BC8 /* Segmentio.swift */; };
 		D29DE39BAA26D8E4DA7534F05DFB78F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
@@ -65,6 +67,8 @@
 		9E292B4C29D95C54CEC5B8BC3C6C9189 /* Pods-Segmentio_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Segmentio_Example-resources.sh"; sourceTree = "<group>"; };
 		A0A2FACDEADFA4A30C47F0C37BCE0211 /* Pods-Segmentio_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Segmentio_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ADC48C4E9F258114BD508838EF31778D /* Pods-Segmentio_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Segmentio_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		AF29B4F41D92934D0095E256 /* UIColor+Bootake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Bootake.swift"; sourceTree = "<group>"; };
+		AF29B4F51D92934D0095E256 /* UIFont+Bootake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Bootake.swift"; sourceTree = "<group>"; };
 		AF767C5305A74E237D044DB939285A7E /* Pods-Segmentio_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Segmentio_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		C332BBDBF329D75B42E3D4DFBC367750 /* Segmentio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Segmentio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -140,6 +144,8 @@
 		47DD221E11AD5E3ABBE22D1B01521963 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				AF29B4F41D92934D0095E256 /* UIColor+Bootake.swift */,
+				AF29B4F51D92934D0095E256 /* UIFont+Bootake.swift */,
 				0F88F99DAA1420A4448E3F028F0C8E7F /* UIView+Appearance.swift */,
 			);
 			path = Extensions;
@@ -397,9 +403,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C08B2CAFA57AFB848065BA4E7CA8F27 /* Segmentio-dummy.m in Sources */,
+				AF29B4F61D92934D0095E256 /* UIColor+Bootake.swift in Sources */,
 				C5C3FE3FCC48A1460787D130DF0CF12E /* Segmentio.swift in Sources */,
 				7535676B6DAAED27C9E51F128BA31498 /* SegmentioOptions.swift in Sources */,
 				08F3ADCD6D2B9007082089826E712007 /* UIView+Appearance.swift in Sources */,
+				AF29B4F71D92934D0095E256 /* UIFont+Bootake.swift in Sources */,
 				E15160B05BBD4763B9DD87EAFA105B3B /* SegmentioCell.swift in Sources */,
 				124C21C2A8B015C1BB87D30F4EEA0214 /* SegmentioCellWithImage.swift in Sources */,
 				8B2E8009B9692DF362678E6FE094A084 /* SegmentioCellWithImageAfterLabel.swift in Sources */,

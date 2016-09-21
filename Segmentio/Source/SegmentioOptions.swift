@@ -90,9 +90,9 @@ public struct SegmentioIndicatorOptions {
     public init(
         type: SegmentioIndicatorType = .Bottom,
         ratio: CGFloat = 1.0,
-        height: CGFloat = 2.0,
+        height: CGFloat = 1.0,
         // FIXME : Add custom color
-        color: UIColor = UIColor.orangeColor()) {
+        color: UIColor = UIColor.indicatorColor()) {
         self.type = type
         self.ratio = ratio
         self.height = height
