@@ -11,7 +11,7 @@ import Segmentio
 
 class ExampleViewController: UIViewController {
     
-    var segmentioStyle = SegmentioStyle.ImageOverLabel
+    var segmentioStyle = SegmentioStyle.OnlyLabel
     
     @IBOutlet private weak var segmentViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet private weak var segmentioView: Segmentio!
@@ -33,10 +33,12 @@ class ExampleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        segmentioStyle = SegmentioStyle.OnlyLabel
+//        segmentViewHeightConstraint.constant = 50
         
         switch segmentioStyle {
         case .OnlyLabel, .ImageBeforeLabel, .ImageAfterLabel:
-            segmentViewHeightConstraint.constant = 50
+            segmentViewHeightConstraint.constant = 48
         case .OnlyImage:
             segmentViewHeightConstraint.constant = 100
         default:
@@ -92,10 +94,10 @@ class ExampleViewController: UIViewController {
         
         return SegmentioOptions(
             backgroundColor: ColorPalette.WhiteColor,
-            maxVisibleItems: 3,
-            scrollEnabled: true,
+            maxVisibleItems: 2,
+            scrollEnabled: false,
             indicatorOptions: segmentioIndicatorOptions(),
-            horizontalSeparatorOptions: segmentioHorizontalSeparatorOptions(),
+            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: .TopAndBottom, height: 0, color: UIColor.redColor()),// nil, //SegmentioHorizontalSeparatorOptions(type: .Top, height: 0, color: UIColor.whiteColor()),
             verticalSeparatorOptions: segmentioVerticalSeparatorOptions(),
             imageContentMode: imageContentMode,
             labelTextAlignment: .Center,
