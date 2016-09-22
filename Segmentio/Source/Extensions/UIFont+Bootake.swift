@@ -4,7 +4,7 @@ import Foundation
 
 extension UIFont {
     
-    func activeFont() -> UIFont {
+    class func activeFont() -> UIFont {
         if let font = UIFont(name: "NotoSansKR-Regular", size: 13) {
             return font
         } else {
@@ -12,7 +12,7 @@ extension UIFont {
         }
     }
     
-    func inactiveFont() -> UIFont {
+    class  func inactiveFont() -> UIFont {
         if let font = UIFont(name: "NotoSansKR-Light", size: 13) {
             return font
         } else {

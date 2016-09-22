@@ -13,7 +13,6 @@ class SegmentioCell: UICollectionViewCell {
     let padding: CGFloat = 8
     let segmentTitleLabelHeight: CGFloat = 22
     
-//    var verticalSeparatorView: UIView?
     var segmentTitleLabel: UILabel?
     var segmentImageView: UIImageView?
     
@@ -23,7 +22,6 @@ class SegmentioCell: UICollectionViewCell {
     
     private var options = SegmentioOptions()
     private var style = SegmentioStyle.ImageOverLabel
-    private let verticalSeparatorLayer = CAShapeLayer()
     
     override var highlighted: Bool {
         get {
@@ -73,7 +71,6 @@ class SegmentioCell: UICollectionViewCell {
         segmentTitleLabel?.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize())
         
         setupConstraintsForSubviews()
-//        addVerticalSeparator()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -81,7 +78,6 @@ class SegmentioCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
-        verticalSeparatorLayer.removeFromSuperlayer()
         super.prepareForReuse()
         
         switch style {
@@ -152,101 +148,4 @@ class SegmentioCell: UICollectionViewCell {
             bottomConstraint?.constant = padding + indicatorOptions.height
         }
     }
-    
-    // MARK: - Vertical separator
-    
-//    private func addVerticalSeparator() {
-//        let contentViewWidth = contentView.bounds.width
-//        let rect = CGRect(
-//            x: contentView.bounds.width - 1,
-//            y: 0,
-//            width: 1,
-//            height: contentViewWidth
-//        )
-//        verticalSeparatorView = UIView(frame: rect)
-//        
-//        guard let verticalSeparatorView = verticalSeparatorView else {
-//            return
-//        }
-//        
-//        if let lastView = contentView.subviews.last {
-//            contentView.insertSubview(verticalSeparatorView, aboveSubview: lastView)
-//        } else {
-//            contentView.addSubview(verticalSeparatorView)
-//        }
-//        
-//        // setup constraints
-//        
-//        verticalSeparatorView.translatesAutoresizingMaskIntoConstraints = false
-//        
-//        let widthConstraint = NSLayoutConstraint(
-//            item: verticalSeparatorView,
-//            attribute: .Width,
-//            relatedBy: .Equal,
-//            toItem: nil,
-//            attribute: .NotAnAttribute,
-//            multiplier: 1,
-//            constant: 1
-//        )
-//        widthConstraint.active = true
-//        
-//        let trailingConstraint = NSLayoutConstraint(
-//            item: verticalSeparatorView,
-//            attribute: .Trailing,
-//            relatedBy: .Equal,
-//            toItem: contentView,
-//            attribute: .Trailing,
-//            multiplier: 1,
-//            constant: 0
-//        )
-//        trailingConstraint.active = true
-//        
-//        let topConstraint = NSLayoutConstraint(
-//            item: verticalSeparatorView,
-//            attribute: .Top, relatedBy: .Equal,
-//            toItem: contentView, attribute: .Top,
-//            multiplier: 1,
-//            constant: 0
-//        )
-//        topConstraint.active = true
-//        
-//        let bottomConstraint = NSLayoutConstraint(
-//            item: contentView,
-//            attribute: .Bottom,
-//            relatedBy: .Equal,
-//            toItem: verticalSeparatorView,
-//            attribute: .Bottom,
-//            multiplier: 1,
-//            constant: 0
-//        )
-//        bottomConstraint.active = true
-//    }
-    
-//    private func setupVerticalSeparators() {
-//        guard let verticalSeparatorOptions = options.verticalSeparatorOptions else {
-//            return
-//        }
-//        
-////        guard let verticalSeparatorView = verticalSeparatorView else {
-////            return
-////        }
-//        
-//        let heightWithRatio = bounds.height * CGFloat(verticalSeparatorOptions.ratio)
-//        let difference = (bounds.height - heightWithRatio) / 2
-//        
-//        let startY = difference
-//        let endY = bounds.height - difference
-//        
-//        let path = UIBezierPath()
-//        path.moveToPoint(CGPoint(x: verticalSeparatorView.frame.width / 2, y: startY))
-//        path.addLineToPoint(CGPoint(x: verticalSeparatorView.frame.width / 2, y: endY))
-//        
-//        verticalSeparatorLayer.path = path.CGPath
-//        verticalSeparatorLayer.lineWidth = 1
-//        verticalSeparatorLayer.strokeColor = verticalSeparatorOptions.color.CGColor
-//        verticalSeparatorLayer.fillColor = verticalSeparatorOptions.color.CGColor
-//        
-//        verticalSeparatorView.layer.addSublayer(verticalSeparatorLayer)
-//    }
-    
 }

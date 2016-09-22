@@ -28,51 +28,41 @@ public struct SegmentioState {
     var titleFont: UIFont
     var titleTextColor: UIColor
     
+    public enum DefaultState {
+        case Normal
+        case Selected
+        case Highlighted
+    }
+    
     public init(
         backgroundColor: UIColor = UIColor.clearColor(),
         // FIXME : Add custom font
-        titleFont: UIFont = UIFont.systemFontOfSize(UIFont.smallSystemFontSize()),
-        titleTextColor: UIColor = UIColor.blackColor()) {
-        self.backgroundColor = backgroundColor
+        //titleFont: UIFont = UIFont.systemFontOfSize(UIFont.smallSystemFontSize()),
+        titleFont: UIFont = UIFont.inactiveFont(),
+        titleTextColor: UIColor = UIColor.inactiveTextColor() ) {
+        self.backgroundColor = UIColor.backgroundColor()
         self.titleFont = titleFont
         self.titleTextColor = titleTextColor
     }
     
-}
-
-// MARK: - Horizontal separator
-
-public enum SegmentioHorizontalSeparatorType {
-    case Top, Bottom, TopAndBottom
-}
-
-public struct SegmentioHorizontalSeparatorOptions {
-    var type: SegmentioHorizontalSeparatorType
-    var height: CGFloat
-    var color: UIColor
-    
-    public init(
-        type: SegmentioHorizontalSeparatorType = .Bottom,
-        height: CGFloat = 0.0,
-        color: UIColor = UIColor.darkGrayColor()) {
-        self.type = type
-        self.height = height
-        self.color = color
+    public init(state: DefaultState) {
+        switch state {
+        case .Normal:
+            self.titleFont = UIFont.inactiveFont()
+            self.titleTextColor = UIColor.inactiveTextColor()
+            break
+        case .Selected:
+            self.titleFont = UIFont.activeFont()
+            self.titleTextColor = UIColor.activeTextColor()
+            break
+        case .Highlighted:
+            self.titleFont = UIFont.activeFont()
+            self.titleTextColor = UIColor.activeTextColor()
+            break
+        }
+        self.backgroundColor = UIColor.backgroundColor()
     }
     
-}
-
-// MARK: - Vertical separator
-
-public struct SegmentioVerticalSeparatorOptions {
-    var ratio: CGFloat
-    var color: UIColor
-    
-    public init(ratio: CGFloat = 0.5, color: UIColor = UIColor.darkGrayColor()) {
-        self.ratio = ratio
-        self.color = color
-    }
-
 }
 
 // MARK: - Indicator
@@ -140,43 +130,47 @@ public struct SegmentioOptions {
     var backgroundColor: UIColor
     var maxVisibleItems: Int
     var scrollEnabled: Bool
-    var horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?
-    var verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?
     var indicatorOptions: SegmentioIndicatorOptions?
     var imageContentMode: UIViewContentMode
     var labelTextAlignment: NSTextAlignment
     var states: SegmentioStates
     
     public init() {
-        self.backgroundColor = UIColor.lightGrayColor()
-        self.maxVisibleItems = 4
-        self.scrollEnabled = true
-        
-        self.horizontalSeparatorOptions = SegmentioHorizontalSeparatorOptions()
-        self.verticalSeparatorOptions = SegmentioVerticalSeparatorOptions()
-        
+        self.maxVisibleItems = 2
+        self.backgroundColor = UIColor.backgroundColor()
+        self.scrollEnabled = false
         self.indicatorOptions = SegmentioIndicatorOptions()
-        
         self.imageContentMode = .Center
         self.labelTextAlignment = .Center
-        
         self.states = SegmentioStates(
-            defaultState: SegmentioState(),
-            selectedState: SegmentioState(),
-            highlightedState: SegmentioState()
+            defaultState: SegmentioState(state: .Normal),
+            selectedState: SegmentioState(state: .Selected),
+            highlightedState: SegmentioState(state: .Highlighted)
         )
     }
     
-    public init(backgroundColor: UIColor, maxVisibleItems: Int, scrollEnabled: Bool, indicatorOptions: SegmentioIndicatorOptions?, horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions?, verticalSeparatorOptions: SegmentioVerticalSeparatorOptions?, imageContentMode: UIViewContentMode, labelTextAlignment: NSTextAlignment, segmentStates: SegmentioStates) {
+    public init(backgroundColor: UIColor, maxVisibleItems: Int, scrollEnabled: Bool, indicatorOptions: SegmentioIndicatorOptions?, imageContentMode: UIViewContentMode, labelTextAlignment: NSTextAlignment, segmentStates: SegmentioStates) {
         self.backgroundColor = backgroundColor
         self.maxVisibleItems = maxVisibleItems
         self.scrollEnabled = scrollEnabled
         self.indicatorOptions = indicatorOptions
-        self.horizontalSeparatorOptions = horizontalSeparatorOptions
-        self.verticalSeparatorOptions = verticalSeparatorOptions
         self.imageContentMode = imageContentMode
         self.labelTextAlignment = labelTextAlignment
         self.states = segmentStates
+    }
+    
+    public init(maxVisibleItems: Int) {
+        self.maxVisibleItems = maxVisibleItems
+        self.backgroundColor = UIColor.backgroundColor()
+        self.scrollEnabled = false
+        self.indicatorOptions = SegmentioIndicatorOptions()
+        self.imageContentMode = .Center
+        self.labelTextAlignment = .Center
+        self.states = SegmentioStates(
+            defaultState: SegmentioState(state: .Normal),
+            selectedState: SegmentioState(state: .Selected),
+            highlightedState: SegmentioState(state: .Highlighted)
+        )
     }
     
 }

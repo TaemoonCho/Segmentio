@@ -51,9 +51,7 @@ public class Segmentio: UIView {
     private var segmentioOptions = SegmentioOptions()
     private var segmentioStyle = SegmentioStyle.ImageOverLabel
     private var isPerformingScrollAnimation = false
-    
-    private var topSeparatorView: UIView?
-    private var bottomSeparatorView: UIView?
+
     private var indicatorLayer: CAShapeLayer?
     private var selectedLayer: CAShapeLayer?
     
@@ -120,29 +118,11 @@ public class Segmentio: UIView {
     }
     
     private func frameForSegmentCollectionView() -> CGRect {
-        var separatorsHeight: CGFloat = 0
-        var collectionViewFrameMinY: CGFloat = 0
-        
-        if let horizontalSeparatorOptions = segmentioOptions.horizontalSeparatorOptions {
-            let separatorHeight = horizontalSeparatorOptions.height
-            
-            switch horizontalSeparatorOptions.type {
-            case .Top:
-                collectionViewFrameMinY = separatorHeight
-                separatorsHeight = separatorHeight
-            case .Bottom:
-                separatorsHeight = separatorHeight
-            case .TopAndBottom:
-                collectionViewFrameMinY = separatorHeight
-                separatorsHeight = separatorHeight * 2
-            }
-        }
-        
         return CGRect(
             x: 0,
-            y: collectionViewFrameMinY,
+            y: 0,
             width: bounds.width,
-            height: bounds.height - separatorsHeight
+            height: bounds.height
         )
     }
     
@@ -196,14 +176,6 @@ public class Segmentio: UIView {
         segmentioCollectionView?.reloadData()
     }
     
-    public override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-        
-        if superview != nil && segmentioOptions.horizontalSeparatorOptions != nil {
-            setupHorizontalSeparator()
-        }
-    }
-    
     // MARK: Collection view setup
     
     private func setupCellWithStyle(style: SegmentioStyle) {
@@ -231,91 +203,7 @@ public class Segmentio: UIView {
         
         segmentioCollectionView?.layoutIfNeeded()
     }
-    
-    // MARK: Horizontal separators setup
-    
-    private func setupHorizontalSeparator() {
-        topSeparatorView?.removeFromSuperview()
-        bottomSeparatorView?.removeFromSuperview()
-        
-        guard let horizontalSeparatorOptions = segmentioOptions.horizontalSeparatorOptions else {
-            return
-        }
-        
-        let height = horizontalSeparatorOptions.height
-        let type = horizontalSeparatorOptions.type
-        
-        if type == .Top || type == .TopAndBottom {
-            topSeparatorView = UIView(frame: CGRectZero)
-            setupConstraintsForSeparatorView(
-                separatorView: topSeparatorView,
-                originY: 0
-            )
-        }
-        
-        if type == .Bottom || type == .TopAndBottom {
-            bottomSeparatorView = UIView(frame: CGRectZero)
-            setupConstraintsForSeparatorView(
-                separatorView: bottomSeparatorView,
-                originY: frame.maxY - height
-            )
-        }
-    }
-    
-    private func setupConstraintsForSeparatorView(separatorView separatorView: UIView?, originY: CGFloat) {
-        guard let horizontalSeparatorOptions = segmentioOptions.horizontalSeparatorOptions, separatorView = separatorView else {
-            return
-        }
-        
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
-        separatorView.backgroundColor = horizontalSeparatorOptions.color
-        addSubview(separatorView)
-        
-        let topConstraint = NSLayoutConstraint(
-            item: separatorView,
-            attribute: .Top,
-            relatedBy: .Equal,
-            toItem: superview,
-            attribute: .Top,
-            multiplier: 1,
-            constant: originY
-        )
-        topConstraint.active = true
-        
-        let leadingConstraint = NSLayoutConstraint(
-            item: separatorView,
-            attribute: .Leading,
-            relatedBy: .Equal,
-            toItem: self,
-            attribute: .Leading,
-            multiplier: 1,
-            constant: 0
-        )
-        leadingConstraint.active = true
-        
-        let trailingConstraint = NSLayoutConstraint(
-            item: separatorView,
-            attribute: .Trailing,
-            relatedBy: .Equal,
-            toItem: self,
-            attribute: .Trailing,
-            multiplier: 1,
-            constant: 0
-        )
-        trailingConstraint.active = true
-        
-        let heightConstraint = NSLayoutConstraint(
-            item: separatorView,
-            attribute: .Height,
-            relatedBy: .Equal,
-            toItem: nil,
-            attribute: .NotAnAttribute,
-            multiplier: 1,
-            constant: horizontalSeparatorOptions.height
-        )
-        heightConstraint.active = true
-    }
-    
+
     // MARK: CAShapeLayers setup
 
     private func setupShapeLayer(shapeLayer shapeLayer: CAShapeLayer, backgroundColor: UIColor, height: CGFloat, sublayer: CALayer) {
@@ -505,22 +393,6 @@ public class Segmentio: UIView {
             indicatorPointY = (indicatorOptions.height / 2)
         case .Bottom:
             indicatorPointY = frame.height - (indicatorOptions.height / 2)
-        }
-        
-        guard let horizontalSeparatorOptions = segmentioOptions.horizontalSeparatorOptions else {
-            return indicatorPointY
-        }
-        
-        let separatorHeight = horizontalSeparatorOptions.height
-        let isIndicatorTop = indicatorOptions.type == .Top
-        
-        switch horizontalSeparatorOptions.type {
-        case .Top:
-            indicatorPointY = isIndicatorTop ? indicatorPointY + separatorHeight : indicatorPointY
-        case .Bottom:
-            indicatorPointY = isIndicatorTop ? indicatorPointY : indicatorPointY - separatorHeight
-        case .TopAndBottom:
-            indicatorPointY = isIndicatorTop ? indicatorPointY + separatorHeight : indicatorPointY - separatorHeight
         }
         
         return indicatorPointY

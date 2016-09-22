@@ -14,6 +14,10 @@ extension UIColor {
     }
     
     class func borderColor() -> UIColor {
+        return self.colorWithRGB(255, 255, 255)
+    }
+    
+    class func backgroundColor() -> UIColor {
         return self.colorWithRGB(247, 247, 247)
     }
     

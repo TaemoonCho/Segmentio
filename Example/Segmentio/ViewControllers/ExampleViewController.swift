@@ -33,17 +33,17 @@ class ExampleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        segmentioStyle = SegmentioStyle.OnlyLabel
-//        segmentViewHeightConstraint.constant = 50
         
-        switch segmentioStyle {
-        case .OnlyLabel, .ImageBeforeLabel, .ImageAfterLabel:
-            segmentViewHeightConstraint.constant = 48
-        case .OnlyImage:
-            segmentViewHeightConstraint.constant = 100
-        default:
-            break
-        }
+        segmentViewHeightConstraint.constant = 48
+        
+//        switch segmentioStyle {
+//        case .OnlyLabel, .ImageBeforeLabel, .ImageAfterLabel:
+//                segmentViewHeightConstraint.constant = 48
+//        case .OnlyImage:
+//            segmentViewHeightConstraint.constant = 96
+//        default:
+//            break
+//        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -55,7 +55,7 @@ class ExampleViewController: UIViewController {
     private func setupSegmentioView() {
         segmentioView.setup(
             content: segmentioContent(),
-            style: segmentioStyle,
+            style: SegmentioStyle.OnlyLabel,
             options: segmentioOptions()
         )
         
@@ -76,7 +76,7 @@ class ExampleViewController: UIViewController {
         return [
             SegmentioItem(title: "Tornado", image: UIImage(named: "tornado")),
             SegmentioItem(title: "Earthquakes", image: UIImage(named: "earthquakes")),
-//            SegmentioItem(title: "Extreme heat", image: UIImage(named: "heat")),
+            SegmentioItem(title: "Extreme heat", image: UIImage(named: "heat"))
 //            SegmentioItem(title: "Eruption", image: UIImage(named: "eruption")),
 //            SegmentioItem(title: "Floods", image: UIImage(named: "floods")),
 //            SegmentioItem(title: "Wildfires", image: UIImage(named: "wildfires"))
@@ -84,45 +84,15 @@ class ExampleViewController: UIViewController {
     }
     
     private func segmentioOptions() -> SegmentioOptions {
-        var imageContentMode = UIViewContentMode.Center
-        switch segmentioStyle {
-        case .ImageBeforeLabel, .ImageAfterLabel:
-            imageContentMode = .ScaleAspectFit
-        default:
-            break
-        }
-        
-        return SegmentioOptions(
-            backgroundColor: ColorPalette.WhiteColor,
-            maxVisibleItems: 2,
-            scrollEnabled: false,
-            indicatorOptions: segmentioIndicatorOptions(),
-            horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(type: .TopAndBottom, height: 0, color: UIColor.redColor()),// nil, //SegmentioHorizontalSeparatorOptions(type: .Top, height: 0, color: UIColor.whiteColor()),
-            verticalSeparatorOptions: segmentioVerticalSeparatorOptions(),
-            imageContentMode: imageContentMode,
-            labelTextAlignment: .Center,
-            segmentStates: segmentioStates()
-        )
+        //return SegmentioOptions()
+        return SegmentioOptions(maxVisibleItems: 3)
     }
     
     private func segmentioStates() -> SegmentioStates {
-        let font = UIFont.exampleAvenirMediumWithSize(13)
         return SegmentioStates(
-            defaultState: segmentioState(
-                backgroundColor: UIColor.clearColor(),
-                titleFont: font,
-                titleTextColor: ColorPalette.GrayChateauColor
-            ),
-            selectedState: segmentioState(
-                backgroundColor: UIColor.clearColor(),
-                titleFont: font,
-                titleTextColor: ColorPalette.BlackColor
-            ),
-            highlightedState: segmentioState(
-                backgroundColor: ColorPalette.WhiteSmokeColor,
-                titleFont: font,
-                titleTextColor: ColorPalette.GrayChateauColor
-            )
+            defaultState: SegmentioState(state: SegmentioState.DefaultState.Normal),
+            selectedState:SegmentioState(state: SegmentioState.DefaultState.Selected),
+            highlightedState: SegmentioState(state: SegmentioState.DefaultState.Highlighted)
         )
     }
     
@@ -132,28 +102,8 @@ class ExampleViewController: UIViewController {
     
     private func segmentioIndicatorOptions() -> SegmentioIndicatorOptions {
         return SegmentioIndicatorOptions()
-//            type: .Bottom,
-//            ratio: 1,
-//            height: 1,
-//            color: UIColor.indicatorColor()
-//        )
     }
-    
-    private func segmentioHorizontalSeparatorOptions() -> SegmentioHorizontalSeparatorOptions {
-        return SegmentioHorizontalSeparatorOptions(
-            type: .TopAndBottom,
-            height: 1,
-            color: ColorPalette.WhiteSmokeColor
-        )
-    }
-    
-    private func segmentioVerticalSeparatorOptions() -> SegmentioVerticalSeparatorOptions {
-        return SegmentioVerticalSeparatorOptions(
-            ratio: 1,
-            color: ColorPalette.WhiteSmokeColor
-        )
-    }
-    
+
     // Example viewControllers
     
     private func preparedViewControllers() -> [ContentViewController] {

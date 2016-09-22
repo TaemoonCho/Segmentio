@@ -300,16 +300,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vkr-KO-SOm" customClass="Segmentio" customModule="Segmentio">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="125"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="48"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="MbU-cC-j02"/>
+                                    <constraint firstAttribute="height" constant="48" id="MbU-cC-j02"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMO-Fm-zcR" userLabel="Container">
-                                <rect key="frame" x="0.0" y="125" width="600" height="475"/>
+                                <rect key="frame" x="0.0" y="48" width="600" height="552"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPK-CN-TXA">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="475"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="552"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="delegate" destination="hoe-Iv-t0i" id="tIm-r4-G4D"/>
@@ -325,7 +325,7 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="i1Z-h8-Bjj">
-                                <rect key="frame" x="0.0" y="125" width="600" height="9"/>
+                                <rect key="frame" x="0.0" y="48" width="600" height="9"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="9" id="2DA-Ym-fL4"/>
                                 </constraints>
